@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Fraud Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; text-align: center; }
+        .container { margin: 50px auto; width: 400px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; margin-top: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        h2 { color: #333; }
+        .result { font-size: 18px; font-weight: bold; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Credit Card Fraud Detection</h2>
+        <form action="/predict" method="post">
+            <!-- Example input fields (replace with actual dataset features) -->
+            <input type="text" name="distance_from_home" placeholder="Distance From Home" required><br>
+            <input type="text" name="distance_from_last_transaction" placeholder="Distance From Last Transaction" required><br>
+            <input type="text" name="ratio_to_median_purchase_price" placeholder="Ratio to Median Purchase Price" required><br>
+            <input type="text" name="repeat_retailer" placeholder="Repeat Retailer (0 or 1)" required><br>
+            <input type="text" name="used_chip" placeholder="Used Chip (0 or 1)" required><br>
+            <input type="text" name="used_pin_number" placeholder="Used Pin Number (0 or 1)" required><br>
+            <input type="text" name="online_order" placeholder="Online Order (0 or 1)" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="result">{{ prediction_text }}</div>
+    </div>
+</body>
+</html>
